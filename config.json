@@ -1,0 +1,17 @@
+{
+  "year": 2024,
+  "availability_delay_hours": 1,
+  "max_distance": 100.0,
+  "max_amount": 500.0,
+  "batch_size": 200000,
+  "seed": 42,
+  "trials": 8,
+  "n_estimators": 1500,
+  "alpha": 0.1,
+  "include_new_test": true,
+  "business_use": "Не согласовано",
+  "business_max_mae": null,
+  "cost_underestimation": 3.0,
+  "cost_overestimation": 1.0,
+  "selection_metric": "MAE"
+}

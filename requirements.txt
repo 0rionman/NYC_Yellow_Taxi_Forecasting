@@ -1,0 +1,15 @@
+# Compatibility constraints; an exact requirements.lock.txt is created after a clean installation.
+# Colab runs this in a separate venv, without downgrading its base environment.
+numpy>=1.26,<3
+pandas>=2.2,<3
+pyarrow>=14,<30
+scikit-learn>=1.6,<1.10
+lightgbm==4.6.0
+scipy>=1.11,<2
+requests>=2.32.4,<3
+joblib>=1.4,<2
+matplotlib>=3.8,<4
+optuna>=4.1,<6
+psutil>=5.9,<8
+streamlit>=1.30,<2
+pytest>=7.4,<10

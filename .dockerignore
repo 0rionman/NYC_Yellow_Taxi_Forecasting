@@ -1,0 +1,9 @@
+.git
+.venv
+raw
+cache
+artifacts
+tests
+__pycache__
+*.ipynb
+*.zip
