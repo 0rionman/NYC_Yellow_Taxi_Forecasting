@@ -1,0 +1,27 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install --no-cache-dir -r requirements.lock.txt
+      - run: pip check
+      - run: python -m pytest -q
+      - if: matrix.python-version == '3.13'
+        run: docker build -t nyc-taxi-ci .
+      - if: matrix.python-version == '3.13'
+        run: |
+          docker run -d --name taxi -p 8501:8501 nyc-taxi-ci
+          for i in $(seq 1 20); do
+            if curl --fail http://localhost:8501/_stcore/health; then exit 0; fi
+            sleep 2
+          done
+          docker logs taxi
+          exit 1
