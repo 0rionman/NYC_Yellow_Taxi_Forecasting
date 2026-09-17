@@ -6,6 +6,8 @@
 
 ## Быстрый запуск: Google Colab
 
+[Открыть ноутбук в Colab](https://colab.research.google.com/github/0rionman/NYC_Yellow_Taxi_Forecasting/blob/main/NYC_Taxi_v2_Colab.ipynb)
+
 1. Загрузите **NYC_Taxi_v2_Colab.ipynb** в Colab, выберите CPU.
 2. Проверьте настройки: год 2024, январь 2025 как новый holdout, штрафы 3/1,
    критерий выбора `MAE` или `BusinessLossPerHour`.
@@ -137,8 +139,7 @@ python -m pytest -q
 сохранение/загрузку модели, полный искусственный эксперимент и Streamlit AppTest.
 Это проверка реализации, не оценка качества на настоящих TLC данных.
 В поставке: 23 теста успешно пройдены в чистой среде Python 3.11;
-`pip check` не обнаружил несовместимых зависимостей. Подтверждения — clean_test_results.txt
-и dependency_check.txt. Проверка Python 3.13 и Docker предусмотрена в CI.
+`pip check` не обнаружил несовместимых зависимостей. Локальные протоколы проверки включены в ZIP поставки; диагностические логи не публикуются в GitHub. Тесты на Python 3.11/3.13, Docker build и HTTP-healthcheck успешно прошли в [GitHub Actions](https://github.com/0rionman/NYC_Yellow_Taxi_Forecasting/actions/runs/35235805827).
 
 ## Обучение без ноутбука
 
@@ -171,7 +172,7 @@ python -m taxi_project.cli train --config config.json
 
 Каталог подготовлен для GitHub: исходники, тесты, README, зависимости, Docker, CI.
 Целевой репозиторий: [0rionman/NYC_Yellow_Taxi_Forecasting](https://github.com/0rionman/NYC_Yellow_Taxi_Forecasting).
-Обновление подготовлено для ветки `codex/project-v2`; факт публикации и CI проверяются отдельно.
+Исходники опубликованы в ветке `main`. Статус автоматических проверок: [GitHub Actions](https://github.com/0rionman/NYC_Yellow_Taxi_Forecasting/actions).
 Не загружайте сырые поездки, кэш, секреты и виртуальное окружение. `.gitignore` это учитывает.
 После завершённого запуска добавьте в README реальные итоги из `artifacts/REPORT.md`.
 
